@@ -47,14 +47,34 @@ canYouDrive(person3);
 
 
 //3.
-// create a variable speedMessage that has a value resulting from a ternary
-// if the speed equals 70 it should say '70 is the perfect speed'
-// if the speed is greater than or equal to 90 it should say 'Are you trying to get us killed'
-// if the speed is less than 50 it should have the value 'Faster please'
-// if speed is less than 10 it should say you should not drive
-// create a variable allowableSpeed that sets a speed based on the range of numbers that are left. so...if allowableSpeed is set to a number in that range your default output should be `<speed> is a decent speed`
-// ---
+const checkSpeed = function(speed) {
+  // create a variable allowableSpeed that sets a speed based on the range of numbers that are left.
+  const allowableSpeed = 
+    speed >= 50 ? `${speed} is an allowable speed`
+    : `Invalid speed`; 
+  // so...if allowableSpeed is set to a number in that range your default output should be `<speed> is a decent speed`
+  // ---
+  
+  // create a variable speedMessage that has a value resulting from a ternary
+  let speedMessage = 
+    speed >= 90 ? `Are you trying to get us killed?!` // if the speed is greater than or equal to 90 it should say 'Are you trying to get us killed'
+    : speed === 70 ? `70 is the perfect speed` // if the speed equals 70 it should say '70 is the perfect speed'
+    : speed < 10 ? `You should not drive` // if speed is less than 10 it should say you should not drive
+    : speed < 50 ? `Faster please` // if the speed is less than 50 it should have the value 'Faster please'
+    : allowableSpeed;
+  
+  
+  console.log(speedMessage);
+}
 
+checkSpeed(90)
+checkSpeed(89)
+checkSpeed(70)
+checkSpeed(54)
+checkSpeed(50)
+checkSpeed(49)
+checkSpeed(9)
+checkSpeed()
 
 
 
