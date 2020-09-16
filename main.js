@@ -23,12 +23,25 @@ const greeting = function(arr) {
 greeting(people);
 
 
-
-
-
 //2.
 ///Create a function that uses ternary to decide whether the person can drive
 // If they are below 15 then log 'cannot drive', if they are 15 then log 'can drive with a parent', if they are 16 or above then 'yes they can drive'
+const canYouDrive = function(person) {
+  const driveStatus = 
+  person.age > 15 ? `yes they can drive`
+  : person.age === 15 ? `can drive with parent`
+  : `cannot drive`;
+
+  return console.log(driveStatus);
+}
+
+let person1 = {age: 14};
+let person2 = {age: 15};
+let person3 = {age: 16};
+
+canYouDrive(person1);
+canYouDrive(person2);
+canYouDrive(person3);
 
 
 
