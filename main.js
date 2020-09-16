@@ -24,7 +24,7 @@ greeting(people);
 
 
 //2.
-///Create a function that uses ternary to decide whether the person can drive
+// Create a function that uses ternary to decide whether the person can drive
 // If they are below 15 then log 'cannot drive', if they are 15 then log 'can drive with a parent', if they are 16 or above then 'yes they can drive'
 const canYouDrive = function(person) {
   const driveStatus = 
@@ -79,14 +79,6 @@ checkSpeed()
 
 
 //4. 
-// map through an array and if the value is greater than 50 it goes in the arr1
-//if the array is less than 50 it goes in arr2
-// if the value is a string arr3
-//floating point numbers should only have 2 decimal places with the exact numbers not rounded
-//use ternary
-// use an array method BUT do not return a data structure when you iterate through your items.
-// OUTPUT:
-//[ 445, 4555 ][ 22, 33.99, 1, 44.98 ] [ 'peaches', 'apple' ]
 let arr = [
     'peaches',
     444.7,
@@ -100,16 +92,36 @@ let arr = [
     undefined,
     NaN,
     44.98999,
-  ]
-  let arr1 = []
-  let arr2 = []
-  let arr3 = []
-  
-  
-  
-  
-  
-// Object Methods:
+];
+
+let arr1 = [];
+let arr2 = [];
+let arr3 = [];
+
+// map through an array and if the value is greater than 50 it goes in the arr1
+// if the array is less than 50 it goes in arr2
+// if the value is a string arr3
+// floating point numbers should only have 2 decimal places with the exact numbers not rounded
+// use ternary
+// use an array method BUT do not return a data structure when you iterate through your items.
+// OUTPUT:
+// [ 445, 4555 ][ 22, 33.99, 1, 44.98 ] [ 'peaches', 'apple' ]
+
+arr.reduce((placeHold, item) => {
+  const arrPush = 
+    typeof(item) === 'number' && item > 50 ? arr1.push(item)
+    : typeof(item) === 'number' && item < 50 ? arr2.push(item)
+    : typeof(item) === 'string' ? arr3.push(item)
+    : console.log();
+
+}, [])
+
+console.log(arr1);
+console.log(arr2);
+console.log(arr3);
+
+
+// Object Methods
 // 5. Use object methods to solve problem
 // Write a method that doubles the price of each item in the prices object and place those values in a new object called priceDoubler
 let prices = {
