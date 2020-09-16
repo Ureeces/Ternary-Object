@@ -1,9 +1,27 @@
 //1.
-// const person = [{ name: "Jill" }, { name: "" }, { name: "Bob" }];
-//create a function 'greeting' that maps through the array.
-// Use a ternary.
-// If there is a name it should say 'Hello <name>' otherwise it should say,
-// 'Hello Stranger'.
+const people = [{ name: "Jill" }, { name: "" }, { name: "Bob" }];
+
+// Create a function 'greeting' that maps through the array.
+const greeting = function(arr) {
+  return arr.reduce((greetings, person) => {
+    // Use a ternary.
+    const hasNoName = person.name === "" ? true : false;
+    
+    // If there is a name it should say 'Hello <name>' otherwise it should say,
+    // 'Hello Stranger'.
+    if(hasNoName) {
+      console.log("Hello Stranger");
+    }
+
+    else {
+      console.log(`Hello ${person.name}`);
+    }
+
+  }, [])
+}
+
+greeting(people);
+
 
 
 
@@ -58,8 +76,8 @@ let arr = [
   
   
   
-Object Methods:
-5.//Use object methods to solve problem
+// Object Methods:
+// 5. Use object methods to solve problem
 // Write a method that doubles the price of each item in the prices object and place those values in a new object called priceDoubler
 let prices = {
   cigarettes: 5.99,
