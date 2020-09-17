@@ -125,28 +125,30 @@ console.log(arr3);
 // 5. Use object methods to solve problem
 // Write a method that doubles the price of each item in the prices object and place those values in a new object called priceDoubler
 const doublePrices = function(prices) {
-  const items = Object.entries(prices);
-  items;
+  const items = Object.entries(prices); // entries of all prices
+  
   const doubledPrices = items.reduce((placeHold, item) => {
-    const diffSizes = typeof(item[1]) === 'object' ? true : false;
+    const diffSizes = typeof(item[1]) === 'object' ? true : false; // determines if an item has different size costs (if there is value that is an object)
     
     if(diffSizes) {
-      const multiPrices = Object.entries(item[1]);
-      console.log(multiPrices);
-      multiPrices.forEach(prices => {
-        placeHold.push({[prices[0]] : prices[1] * 2});
+      const multiPrices = Object.entries(item[1]); // get the entries from the object
+      let newPrices = {}; // empty object that will be pushed into the array at the end
+
+      multiPrices.forEach(price => {
+        newPrices[price[0]] = price[1] * 2; // for each size, make the size the key, and set its value to double its original price
       });
+
+      placeHold.push([item[0], newPrices]); // push it into the array
     }
 
     else {
-      placeHold.push([item[0], item[1] * 2]);
+      placeHold.push([item[0], item[1] * 2]); 
     }
 
-    return placeHold;
+    return placeHold; // This returns the doubled price data in an entry form - make sure to return it as properly formatted object
   }, [])
 
-  doubledPrices
-
+  return Object.fromEntries(doubledPrices);
 }
 
 let prices = {
